@@ -1,0 +1,38 @@
+int var = 0;
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  sayPer();
+}
+
+void serialEvent(){
+  while(Serial.available() > 0){
+    char query = Serial.read();
+
+    if(query == 'a'){
+      Serial.println("AAAAAAAAAAAAAAAAAA");
+    }
+    else if(query == 'b'){
+      Serial.println("BRUHHHHHHH");
+    }
+
+    if (query == 'e'){
+      exit(0);
+    }
+  }
+}
+
+sayPer(){
+  Serial.println(var+1);
+  var = var + 1;
+
+  if(var>=100)
+  {
+    var = 0;
+  }
+
+  delay(100);
+}
